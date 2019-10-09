@@ -1,22 +1,37 @@
 import React from "react";
-import "./Contact.css";
+import "./Contact.css"
 
 
+let Contact = (props) => {
+    return (
+        <div className="Contact">
+            <img className="avatar" src={props.image} alt={props.character} />
+            <div>
+                <p className="name">{props.character}</p>
+                {connection(props.online)}
+            </div>
+        </div>
+    );
+}
 
-const name = "Hkwolf"
-const avatar = "https://avatars1.githubusercontent.com/u/55136269?s=400&u=2acc55c2d29429b91df063c3dfb6da5ea38c9283&v=4"
-const boolean = true
+const connection = (param) => {
 
-const element = (
-    <div className="person-item">
-       <img className="avatar" src={avatar} />
-    <div>
-    <h4>{name}</h4>
- 
-    <p>{boolean ? "Online" : "Offline"}</p>
-    </div>
-     </div>
-);
+    if (param) {
+    return (
+        <div className='status'>
+            <p className="status-text"><span className="status-online"></span>Online</p>
+        </div >
+    )
+} else {
+    return (
+        <div className="status">
+            <p className="status-text"><span className="status-offline"></span>offline</p>
+        </div>
+    )
+}}
+
+// en haut on set up les "props" , en bas on définit un status-check //
+    
 
 
-ReactDOM.render(element, document.getElementById('root'));
+export default Contact;

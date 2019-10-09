@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Contact from './components/Contact';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Contact image="https://randomuser.me/api/portraits/women/43.jpg" character="Lolita Ferrari" online={true} />
+      <Contact image="https://randomuser.me/api/portraits/women/58.jpg" character="Carmen Elektra" online={false} />
+      <Contact image="https://randomuser.me/api/portraits/women/60.jpg" character="Alexis Texas" online={false} />
     </div>
   );
 }
+
+// Ici on appelle les props déclaré dans Contact.js, //
 
 export default App;
