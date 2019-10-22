@@ -1,37 +1,37 @@
 import React from "react";
-import "./Contact.css"
+import "./Contact.css";
 
-
-let Contact = (props) => {
+class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      online: props.online
+    };
+  }
+  render() {
     return (
-        <div className="Contact">
-            <img className="avatar" src={props.image} alt={props.character} />
-            <div>
-                <p className="name">{props.character}</p>
-                {connection(props.online)}
-            </div>
+      <div className="Contact">
+        <img className="avatar" src={this.props.image} alt={this.props.image} />
+        <div>
+          <p className="name">{this.props.character}</p>
+          <div className="status">
+            <p className="status-text">
+              <span
+                className={
+                  this.state.online ? "status-online" : "status-offline"
+                }
+                onClick={event => {
+                  const newVal = !this.state.online;
+                  this.setState({ online: newVal });
+                }}
+              />
+              {this.state.online ? "online" : "offline"}
+            </p>
+          </div>
         </div>
+      </div>
     );
+  }
 }
-
-const connection = (param) => {
-
-    if (param) {
-    return (
-        <div className='status'>
-            <p className="status-text"><span className="status-online"></span>Online</p>
-        </div >
-    )
-} else {
-    return (
-        <div className="status">
-            <p className="status-text"><span className="status-offline"></span>offline</p>
-        </div>
-    )
-}}
-
-// en haut on set up les "props" , en bas on définit un status-check //
-    
-
 
 export default Contact;
